@@ -71,6 +71,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0;color:var(--muted);font
 }
 @media(max-width:480px){.steps{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+#privacy p{max-width:62ch;color:var(--muted);font-size:.95rem;margin:0}
 </style>
 </head>
 <body>
@@ -185,10 +186,16 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0;color:var(--muted);font
       </div>
     </div>
   </section>
+<section id="privacy">
+    <div class="wrap">
+      <h2>Informativa privacy</h2>
+      <p>Questo sito non utilizza cookie né strumenti di tracciamento o profilazione e non raccoglie dati personali. Se mi contatti per telefono, WhatsApp o email, uso i tuoi dati (nome, recapito e contenuto del messaggio) solo per risponderti e gestire l’appuntamento, e li conservo per il tempo necessario. Titolare del trattamento: Dott. Salvatore Guida, P. IVA 06460081216, <a href="mailto:salvatoreguidafisio@gmail.com">salvatoreguidafisio@gmail.com</a>. Puoi esercitare i diritti previsti dal GDPR (accesso, rettifica, cancellazione) scrivendomi. Il sito è ospitato su GitHub Pages, che può registrare dati tecnici di navigazione, come l’indirizzo IP, secondo la propria informativa.</p>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <div class="wrap">© <span id="y">2026</span> Dott. Salvatore Guida – Fisioterapista · P. IVA 06460081216 · Iscritto all’Albo FNOFI n. 5. I contenuti di questo sito hanno scopo informativo e non sostituiscono il parere del medico.</div>
+  <div class="wrap">© <span id="y">2026</span> Dott. Salvatore Guida – Fisioterapista · P. IVA 06460081216 · Iscritto all’Albo FNOFI n. 5 · <a href="#privacy">Privacy</a>. I contenuti di questo sito hanno scopo informativo e non sostituiscono il parere del medico.</div>
 </footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
