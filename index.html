@@ -72,6 +72,10 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0;color:var(--muted);font
 @media(max-width:480px){.steps{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 #privacy p{max-width:62ch;color:var(--muted);font-size:.95rem;margin:0}
+#pb{position:fixed;left:.8rem;right:.8rem;bottom:calc(.8rem + env(safe-area-inset-bottom,0px));z-index:50;max-width:44rem;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1rem;justify-content:space-between;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:.7rem;padding:.9rem 1rem;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:.95rem;line-height:1.45}
+#pb[hidden]{display:none}
+#pb a{color:var(--brand);font-weight:600}
+#pb button{font:inherit;font-weight:600;background:var(--brand);color:var(--brand-ink);border:0;border-radius:.5rem;padding:.6rem 1.2rem;cursor:pointer}
 </style>
 </head>
 <body>
@@ -189,7 +193,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0;color:var(--muted);font
 <section id="privacy">
     <div class="wrap">
       <h2>Informativa privacy</h2>
-      <p>Questo sito non utilizza cookie né strumenti di tracciamento o profilazione e non raccoglie dati personali. Se mi contatti per telefono, WhatsApp o email, uso i tuoi dati (nome, recapito e contenuto del messaggio) solo per risponderti e gestire l’appuntamento, e li conservo per il tempo necessario. Titolare del trattamento: Dott. Salvatore Guida, P. IVA 06460081216, <a href="mailto:salvatoreguidafisio@gmail.com">salvatoreguidafisio@gmail.com</a>. Puoi esercitare i diritti previsti dal GDPR (accesso, rettifica, cancellazione) scrivendomi. Il sito è ospitato su GitHub Pages, che può registrare dati tecnici di navigazione, come l’indirizzo IP, secondo la propria informativa.</p>
+      <p>Questo sito non utilizza cookie né strumenti di tracciamento o profilazione e non raccoglie dati personali. Se mi contatti per telefono, WhatsApp o email, uso i tuoi dati (nome, recapito e contenuto del messaggio) solo per risponderti e gestire l’appuntamento, e li conservo per il tempo necessario. Titolare del trattamento: Dott. Salvatore Guida, P. IVA 06460081216, <a href="mailto:salvatoreguidafisio@gmail.com">salvatoreguidafisio@gmail.com</a>. Puoi esercitare i diritti previsti dal GDPR (accesso, rettifica, cancellazione) scrivendomi. Sul tuo dispositivo viene memorizzata solo la scelta di chiudere l’avviso sulla privacy. Il sito è ospitato su GitHub Pages, che può registrare dati tecnici di navigazione, come l’indirizzo IP, secondo la propria informativa.</p>
     </div>
   </section>
 </main>
@@ -198,5 +202,17 @@ footer{border-top:1px solid var(--line);padding:1.8rem 0;color:var(--muted);font
   <div class="wrap">© <span id="y">2026</span> Dott. Salvatore Guida – Fisioterapista · P. IVA 06460081216 · Iscritto all’Albo FNOFI n. 5 · <a href="#privacy">Privacy</a>. I contenuti di questo sito hanno scopo informativo e non sostituiscono il parere del medico.</div>
 </footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<div id="pb" role="region" aria-label="Informativa privacy" hidden>
+  <span>Questo sito non utilizza cookie né strumenti di tracciamento. <a href="#privacy">Leggi l’informativa privacy</a>.</span>
+  <button id="pbok" type="button">Ho capito</button>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('pb'),ok=false;
+  try{ok=localStorage.getItem('pb_ok')==='1'}catch(e){}
+  if(!ok)b.hidden=false;
+  document.getElementById('pbok').onclick=function(){b.hidden=true;try{localStorage.setItem('pb_ok','1')}catch(e){}};
+})();
+</script>
 </body>
 </html>
